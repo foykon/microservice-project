@@ -1,14 +1,13 @@
 package com.BitProject.productservice.resource;
 
-import com.BitProject.productservice.dto.FilterAndPageDto;
-import com.BitProject.productservice.dto.ProductDto;
-import com.BitProject.productservice.dto.ProductRequest;
-import com.BitProject.productservice.dto.ProductResponse;
+import com.BitProject.productservice.dto.*;
 import com.BitProject.productservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
@@ -17,7 +16,7 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<ProductResponse> getProducts(
             @RequestParam(required = false) String productName,
             @RequestParam(defaultValue = "0", required = false) double minPrice,
@@ -37,6 +36,17 @@ public class ProductController {
                         .sortDir(sortDir)
                     .build()));
     }
+
+    //@GetMapping("/{id}")
+    //public ResponseEntity<ProductDto> getProductById(@PathVariable  Long id){
+    //    return ResponseEntity.ok(productService.findById(id));
+    //}
+
+    @GetMapping
+    public List<StockResponse> isInStock(@RequestParam List<Long> id){
+        return productService.isInStock(id);
+    }
+
 
 
 

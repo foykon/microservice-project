@@ -2,10 +2,7 @@ package com.BitProject.productservice.service.impl;
 
 import com.BitProject.productservice.dao.ProductRepository;
 import com.BitProject.productservice.domain.Product;
-import com.BitProject.productservice.dto.FilterAndPageDto;
-import com.BitProject.productservice.dto.ProductDto;
-import com.BitProject.productservice.dto.ProductRequest;
-import com.BitProject.productservice.dto.ProductResponse;
+import com.BitProject.productservice.dto.*;
 import com.BitProject.productservice.service.ProductService;
 import com.BitProject.productservice.specification.ProductSpecification;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
@@ -25,6 +23,20 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
+
+    @Transactional(readOnly = true)
+    public List<StockResponse> isInStock(List<Long> id){
+
+        return productRepository.findAllById(id).stream()
+                .map(product ->
+                    StockResponse.builder()
+                            .id(product.getId())
+                            .isInStock(product.getStock() > 0)
+                            .build()
+                ).toList();
+
+    }
+
 
     @Override
     public ProductResponse findAllProducts(FilterAndPageDto filterAndPageDto){
@@ -65,8 +77,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductRequest findById(Long id) {
-        return null;
+    public ProductDto findById(Long id) {
+        return mapToProductDto(productRepository.getReferenceById(id));
     }
 
     @Override
@@ -104,5 +116,7 @@ public class ProductServiceImpl implements ProductService {
                 .description(product.getDescription())
                 .build();
     }
+
+
 
 }

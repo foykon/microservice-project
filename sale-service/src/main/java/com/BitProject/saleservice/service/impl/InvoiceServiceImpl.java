@@ -10,7 +10,9 @@ import com.BitProject.saleservice.dto.*;
 import com.BitProject.saleservice.service.InvoiceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +24,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     private final InvoiceRepository invoiceRepository;
     private final ProductRepository productRepository;
     private final CampaignRepository campaignRepository;
+    private final WebClient webClient;
 
 
     @Override
@@ -29,15 +32,34 @@ public class InvoiceServiceImpl implements InvoiceService {
 
         List<Product> products = findProductsByIds(invoiceCreateRequest.getListOfProductId());
         products.forEach(product -> ReduceStock(product));
-        return MapToInvoiceResponse(
-                invoiceRepository.save(Invoice.builder()
-                        .date(new Date())
-                        .products(products)
-                        .totalCost(products.stream().mapToDouble(Product::getPrice).sum())
-                        .campaign(campaignRepository.getReferenceById(invoiceCreateRequest.getCampaignId()))
-                        .build()
-                )
-        );
+
+
+        //call product service and place order if product is in stock
+        StockResponse[] result = webClient.get()
+                .uri("http://localhost:8080/api/products", uriBuilder -> uriBuilder.queryParam("id",invoiceCreateRequest.getListOfProductId()).build())
+                .retrieve()
+                .bodyToMono(StockResponse[].class)
+                .block();
+
+        //flag for all products
+        boolean allProductsInStock = Arrays.stream(result)
+                .allMatch(StockResponse::isInStock);
+
+        if(allProductsInStock){
+            return MapToInvoiceResponse(
+                    invoiceRepository.save(Invoice.builder()
+                            .date(new Date())
+                            .products(products)
+                            .totalCost(products.stream().mapToDouble(Product::getPrice).sum())
+                            .campaign(campaignRepository.getReferenceById(invoiceCreateRequest.getCampaignId()))
+                            .build()
+                    )
+            );
+        }else throw new IllegalArgumentException("product is not inn stock");
+
+
+
+
     }
 
     /**
