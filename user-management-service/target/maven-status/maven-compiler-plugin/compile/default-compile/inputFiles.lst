@@ -1,0 +1,15 @@
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\service\UserService.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\specification\UserSpecification.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\dto\UserDto.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\dto\UserRequest.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\domain\Role.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\dto\UserResponse.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\dao\RoleRepository.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\dto\FilterAndPageDto.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\dto\RoleResponse.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\service\impl\UserServiceImpl.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\domain\User.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\UserManagementServiceApplication.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\dto\RoleRequest.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\dao\UserRepository.java
+C:\Users\foyko\Desktop\microservices-parent\user-management-service\src\main\java\com\BitProject\usermanagementservice\source\UserController.java

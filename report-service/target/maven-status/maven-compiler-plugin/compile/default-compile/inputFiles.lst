@@ -1,0 +1,17 @@
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\dao\CampaignRepository.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\dao\ProductRepository.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\service\PDFGeneratorService.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\dto\FilterAndPageDto.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\dto\InvoiceResponse.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\domain\Invoice.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\domain\Product.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\service\InvoiceService.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\source\ReportController.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\dto\CampaignResponse.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\specification\InvoiceSpecification.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\dao\InvoiceRepository.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\dto\ProductResponse.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\service\impl\InvoiceServiceImpl.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\dto\InvoiceDto.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\domain\Campaign.java
+C:\Users\foyko\Desktop\microservices-parent\report-service\src\main\java\com\BitProject\reportservice\ReportServiceApplication.java

@@ -1,0 +1,16 @@
+com\BitProject\productservice\dto\ProductResponse.class
+com\BitProject\productservice\service\impl\ProductServiceImpl.class
+com\BitProject\productservice\resource\ProductController.class
+com\BitProject\productservice\dao\ProductRepository.class
+com\BitProject\productservice\dto\ProductRequest$ProductRequestBuilder.class
+com\BitProject\productservice\dto\FilterAndPageDto$FilterAndPageDtoBuilder.class
+com\BitProject\productservice\dto\ProductDto$ProductDtoBuilder.class
+com\BitProject\productservice\service\ProductService.class
+com\BitProject\productservice\dto\ProductResponse$ProductResponseBuilder.class
+com\BitProject\productservice\dto\FilterAndPageDto.class
+com\BitProject\productservice\dto\ProductDto.class
+com\BitProject\productservice\ProductServiceApplication.class
+com\BitProject\productservice\domain\Product.class
+com\BitProject\productservice\dto\ProductRequest.class
+com\BitProject\productservice\domain\Product$ProductBuilder.class
+com\BitProject\productservice\specification\ProductSpecification.class
