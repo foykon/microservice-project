@@ -16,7 +16,7 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping("/all")
+    @GetMapping("/all2")
     public ResponseEntity<ProductResponse> getProducts(
             @RequestParam(required = false) String productName,
             @RequestParam(defaultValue = "0", required = false) double minPrice,
@@ -57,12 +57,8 @@ public class ProductController {
     }
 
 
-    /* normal list method
-    @GetMapping
-    @ResponseStatus(HttpStatus.OK)
-    public List<ProductResponse> getAllProducts(){
-        return productService.getAllProducts();
-    }
-*/
+
+
+
 }
 

@@ -31,6 +31,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     public InvoiceResponse createInvoice(InvoiceCreateRequest invoiceCreateRequest) {
 
         List<Product> products = findProductsByIds(invoiceCreateRequest.getListOfProductId());
+
         products.forEach(product -> ReduceStock(product));
 
 
