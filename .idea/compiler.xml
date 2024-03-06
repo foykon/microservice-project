@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="product-service" />
         <module name="report-service" />
+        <module name="discovery-server" />
         <module name="sale-service" />
         <module name="user-management-service" />
       </profile>
@@ -16,6 +17,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="discovery-server" options="-parameters" />
       <module name="product-service" options="-parameters" />
       <module name="report-service" options="-parameters" />
       <module name="sale-service" options="-parameters" />

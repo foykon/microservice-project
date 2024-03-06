@@ -24,7 +24,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     private final InvoiceRepository invoiceRepository;
     private final ProductRepository productRepository;
     private final CampaignRepository campaignRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
 
 
     @Override
@@ -36,8 +36,8 @@ public class InvoiceServiceImpl implements InvoiceService {
 
 
         //call product service and place order if product is in stock
-        StockResponse[] result = webClient.get()
-                .uri("http://localhost:8080/api/products", uriBuilder -> uriBuilder.queryParam("id",invoiceCreateRequest.getListOfProductId()).build())
+        StockResponse[] result = webClientBuilder.build().get()
+                .uri("http://product-service/api/products", uriBuilder -> uriBuilder.queryParam("id",invoiceCreateRequest.getListOfProductId()).build())
                 .retrieve()
                 .bodyToMono(StockResponse[].class)
                 .block();
