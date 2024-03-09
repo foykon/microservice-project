@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/sales")
+@RequestMapping("/api/sale")
 @RequiredArgsConstructor
 public class SaleController {
     private final InvoiceService invoiceService;
@@ -31,7 +31,7 @@ public class SaleController {
     //    return invoiceCreateRequest;
     //}
 
-    @GetMapping("/listCampaign")
+    @GetMapping
     public ResponseEntity<CampaignResponse> getCampaign(
             @RequestParam(value = "pageNo", defaultValue = "0", required = false) int pageNo,
             @RequestParam(value = "pageSize", defaultValue = "5", required = false) int pageSize,

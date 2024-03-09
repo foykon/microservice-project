@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api/product")
 @RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping("/all2")
+    @GetMapping()
     public ResponseEntity<ProductResponse> getProducts(
             @RequestParam(required = false) String productName,
             @RequestParam(defaultValue = "0", required = false) double minPrice,
@@ -42,10 +42,10 @@ public class ProductController {
     //    return ResponseEntity.ok(productService.findById(id));
     //}
 
-    @GetMapping
-    public List<StockResponse> isInStock(@RequestParam List<Long> id){
-        return productService.isInStock(id);
-    }
+    //@GetMapping
+    //public List<StockResponse> isInStock(@RequestParam List<Long> id){
+    //    return productService.isInStock(id);
+    //}
 
 
 
