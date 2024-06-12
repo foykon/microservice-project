@@ -37,7 +37,7 @@ public class InvoiceServiceImpl implements InvoiceService {
 
         //call product service and place order if product is in stock
         StockResponse[] result = webClientBuilder.build().get()
-                .uri("http://product-service/api/products", uriBuilder -> uriBuilder.queryParam("id",invoiceCreateRequest.getListOfProductId()).build())
+                .uri("http://product-service/api/product", uriBuilder -> uriBuilder.queryParam("id",invoiceCreateRequest.getListOfProductId()).build())
                 .retrieve()
                 .bodyToMono(StockResponse[].class)
                 .block();

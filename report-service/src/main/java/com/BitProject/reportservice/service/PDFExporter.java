@@ -6,6 +6,7 @@ import com.lowagie.text.*;
 import com.lowagie.text.Font;
 import com.lowagie.text.pdf.*;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.swing.*;
@@ -18,13 +19,14 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class PDFExporter {
     private InvoiceDto invoiceDto;
 
-    public PDFExporter(){
-
-    }
-
+    /**
+     * writes table s columns for that we will send value
+     * @param table
+     */
     private void writeTableHeader(PdfPTable table) {
         PdfPCell cell = new PdfPCell();
         cell.setBackgroundColor(Color.RED);
@@ -46,6 +48,11 @@ public class PDFExporter {
         table.addCell(cell);
     }
 
+    /**
+     * entering data s on columns
+     * @param table
+     * @param productResponses
+     */
     private void writeTableData(PdfPTable table, List<ProductResponse> productResponses) {
         for(ProductResponse productResponse : productResponses){
             table.addCell(String.valueOf(productResponse.getId()));
@@ -56,12 +63,23 @@ public class PDFExporter {
 
     }
 
+    /**
+     * Title for invoice
+     * @return
+     */
     private Paragraph writeTableTitle(){
         Paragraph paragraph = new Paragraph("32Bit Project\nFurkan Yıldız\nSakarya Üniversitesi\nBilgisayar ve Bilişim Fakültesi\nSerdivan/Sakarya\nTeşekkür Ederiz");
         paragraph.setAlignment(Paragraph.ALIGN_CENTER);
         return paragraph;
     }
 
+
+    /**
+     * as a main function for class which has settings for document
+     * @param servletResponse
+     * @param invoiceDto
+     * @throws IOException
+     */
     public void export(HttpServletResponse servletResponse, InvoiceDto invoiceDto) throws  IOException{
         Document document = new Document(PageSize.A5);
 

@@ -16,7 +16,7 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping()
+    @GetMapping("list")
     public ResponseEntity<ProductResponse> getProducts(
             @RequestParam(required = false) String productName,
             @RequestParam(defaultValue = "0", required = false) double minPrice,
@@ -42,10 +42,10 @@ public class ProductController {
     //    return ResponseEntity.ok(productService.findById(id));
     //}
 
-    //@GetMapping
-    //public List<StockResponse> isInStock(@RequestParam List<Long> id){
-    //    return productService.isInStock(id);
-    //}
+    @GetMapping
+    public List<StockResponse> isInStock(@RequestParam List<Long> id){
+        return productService.isInStock(id);
+    }
 
 
 
